@@ -17,6 +17,7 @@ import com.example.libraryapp.presentation.viewmodel.BookListViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import androidx.navigation.fragment.findNavController
 
 class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
 
@@ -57,7 +58,10 @@ class BookingListFragment : Fragment(R.layout.fragment_booking_list) {
 
     private fun setupRecyclerView() {
         bookAdapter = BookAdapter { book ->
-            // Navegar al detalle usando Navigation Component pasar el id
+
+            findNavController().navigate(
+                BookingListFragmentDirections.actionListToDetail(book.id)
+            )
         }
         binding.recyclerView.apply {
             adapter = bookAdapter

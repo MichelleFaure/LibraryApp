@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bookingListFragment">
+
+    <fragment
+        android:id="@+id/bookingListFragment"
+        android:name="com.example.libraryapp.presentation.ui.BookingListFragment"
+        android:label="Booking List"
+        tools:layout="@layout/fragment_booking_list">
+        <action
+            android:id="@+id/actionListToDetail"
+            app:destination="@id/bookingDetailFragment">
+
+            <argument
+                android:name="bookId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookingDetailFragment"
+        android:name="com.example.libraryapp.presentation.ui.BookingDetailFragment"
+        android:label="Booking Detail"
+        tools:layout="@layout/fragment_booking_detail">
+
+        <argument
+            android:name="bookId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
